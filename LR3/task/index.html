@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>Task5 - Отчет к лабораторным работам по курсу "WEB-пограммирование"</title>
+        <title>Задание - Отчет к лабораторным работам по курсу "WEB-пограммирование"</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,7 +83,7 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="../task1/"
+        <a href="../../LR1/task1/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Задание 1
@@ -91,7 +91,7 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../task2/"
+        <a href="../../LR1/task2/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Задание 2
@@ -99,7 +99,7 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../task3/"
+        <a href="../../LR1/task3/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Задание 3
@@ -107,7 +107,7 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../task4/"
+        <a href="../../LR1/task4/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Задание 4
@@ -138,7 +138,7 @@
             </li>
             <li class="drac-box">
                 <a href="../.."
-                    class="
+                    class=" active 
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#лабораторная-работа-№3-collapse" aria-expanded="false">
                     Лабораторная работа №3
@@ -147,8 +147,8 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="../../LR3/task/"
-            class="
+        <a href="./"
+            class=" active 
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Задание
         </a>
@@ -201,6 +201,22 @@
                     <!-- block preview -->
                     <li class="nav-item">
                             
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../../LR2/task/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../../LR4/task/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
                     </li>
                     <!--  endblock -->
 
@@ -231,159 +247,220 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><h2 id="no4">Задание №4. Многопользовательский чат</h2>
-<h3 id="_1">Описание:</h3>
-<p>Реализовать двухпользовательский или многопользовательский чат. Для максимального количества баллов реализуйте многопользовательский чат.</p>
-<h3 id="_2">Требования:</h3>
+        <p><h2 id="_1">Реализация проекта по варианту</h2>
+<h3 id="_2">Схема:</h3>
+<p><img alt="Alt текст" src="../images/%D1%81%D1%85%D0%B5%D0%BC%D0%B0.jpeg" /></p>
+<h3 id="_3">Описание</h3>
+<h3 id="_4">Сервис для аренды недвижимости:</h3>
 <ul>
-<li>Обязательно использовать библиотеку socket.</li>
-<li>Для многопользовательского чата необходимо использовать библиотеку threading.</li>
+<li>Пользователь может загрузить свое объявление или откликнуться на существующие.</li>
+<li>Пользователь может перейти в чат с арендодателем по объявлению</li>
+<li>Пользователь может изменить свои данные</li>
+<li>Пользователь может посмотреть свои сделки: посмотреть нынешнюю или прогрузить старые</li>
 </ul>
-<h3 id="_3">Реализация:</h3>
+<h3 id="_5">Ход работы</h3>
+<p>Первым делом (после полноценной настройки проекта),
+были созданы основные модели:</p>
+<pre><code>class LeaseDetails(models.Model):
+    LEASE_TYPE_CHOICES = (
+        (&quot;ST&quot;, 'Short-Term'),
+        (&quot;LT&quot;, 'Long-Term'),
+        (&quot;M2M&quot;, 'Month-to-Month'),
+        (&quot;S&quot;, 'Seasonal'),
+        (&quot;SL&quot;, 'Sublease'),
+        (&quot;C&quot;, 'Commercial'),
+        (&quot;CL&quot;, 'Co-Living/Shared Space'),
+        (&quot;R2O&quot;, 'Rent-to-Own'),
+    )
+    lease_type = models.CharField(max_length=5, choices=LEASE_TYPE_CHOICES)
+    cost = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=True)
+    lease_duration = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+        help_text=&quot;Duration of the lease in months, if applicable&quot;
+    )
+    additional_details = models.TextField(
+        blank=True,
+        help_text=&quot;Additional notes or details about the lease agreement&quot;
+    )
+
+
+class Attachment(models.Model):
+    picture_url = models.URLField()
+
+    def __str__(self):
+        return self.picture_url
+
+
+class RealEstateDetails(models.Model):
+    detail_name = models.CharField(max_length=200)
+    detail_description = models.CharField(max_length=200)
+</code></pre>
+<p>Далее применил миграции и приступил к созданию views и serializers:</p>
+<pre><code>class RealEstateShortSerializer(ModelSerializer):
+    photos = serializers.SerializerMethodField()
+
+    class Meta:
+        model = RealEstate
+        fields = [
+            'location',
+            'photos'
+        ]
+        depth = 1
+
+    def get_photos(self, obj):
+        return [i.picture_url for i in obj.photos.all()]
+
+
+class LeaseDetailsListSerializer(ModelSerializer):
+    lease_type = serializers.SerializerMethodField()
+
+    class Meta:
+        model = LeaseDetails
+        fields = [
+            'lease_type',
+            'cost'
+        ]
+
+    def get_lease_type(self, obj):
+        return obj.get_lease_type_display()
+
+
+class ListPostingsView(ListAPIView):
+    serializer_class = PostingListSerializer
+    queryset = LeasePosting.objects.all()
+
+
+class DetailPostingView(RetrieveUpdateDestroyAPIView):
+    serializer_class = PostingDetailsSerializer
+    queryset = LeasePosting.objects.all()
+    permission_classes = [IsAuthorOrReadOnly]
+</code></pre>
+<p>Аналогичные классы были сделаны для всех моделей, после чего я приступил к заполнению. 
+На скриншотах ниже представлены примеры заполнения и готовые модели:
+<img alt="Alt текст" src="../images/1.png" />
+<img alt="Alt текст" src="../images/2.png" />
+<img alt="Alt текст" src="../images/5.png" />
+<img alt="Alt текст" src="../images/6.png" />
+<img alt="Alt текст" src="../images/7.png" /></p>
+<p>Также реализовал функционал для user, добавив создание, редактирование и удаление пользователей:
+<img alt="Alt текст" src="../images/3.jpeg" />
+<img alt="Alt текст" src="../images/4.jpeg" /></p>
+<p>Также реализовал модели для объявлений недвижимости:</p>
+<pre><code>class ListPostingsView(ListAPIView):
+    serializer_class = PostingListSerializer
+    queryset = LeasePosting.objects.all()
+
+
+class DetailPostingView(RetrieveUpdateDestroyAPIView):
+    serializer_class = PostingDetailsSerializer
+    queryset = LeasePosting.objects.all()
+    permission_classes = [IsAuthorOrReadOnly]
+
+...
+
+class PostingsManageView(ListAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = PostingDetailsSerializer
+
+    def get_queryset(self):
+        if self.request.GET.get('archive', False):
+            return LeasePosting.objects.filter(real_estate__owner=self.request.user,
+                                               archived=True)
+        return LeasePosting.objects.filter(real_estate__owner=self.request.user)
+
+
+class PostingCreateView(CreateAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = LeasePosting.objects.all()
+    serializer_class = LeasePostingCreateSerializer
+
+    def perform_create(self, serializer):
+        house = serializer.validated_data['real_estate']
+        if house.owner != self.request.user:
+            from rest_framework.exceptions import PermissionDenied
+            raise PermissionDenied({
+                'detail': 'You do not have permission to perform this action.'
+            })
+        return serializer.save()
+
+
+class PostingChatView(ListAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = ChatMessageListSerializer
+
+    def get_queryset(self):
+        return ChatMessage.objects.filter(
+            Q(chat__posting__real_estate_id=self.kwargs['pk']) &amp;
+            Q(chat__renter=self.request.user) |
+            Q(chat__posting__real_estate__owner=self.request.user)
+        )
+
+</code></pre>
+<p>Аналогичным образом были созданы view для остальных необходимых моделей. Результат приведем наскришоте ниже:
+<img alt="Alt текст" src="../images/8.png" /></p>
+<p>После базовой и обычной настройки проекта приступим к реализации дополнительного функционала:</p>
+<pre><code>path('account/realestate/', RealEstateManagementView.as_view()),
+path('account/postings/', PostingsManageView.as_view()),
+path('account/chats/leases/', MyLeasesChatsView.as_view()),
+path('account/chats/rents/', MyRealEstateChatsView.as_view()),
+</code></pre>
 <ul>
-<li>Протокол TCP: 100% баллов.</li>
-<li>Протокол UDP: 80% баллов.</li>
-<li>Для UDP используйте threading для получения сообщений на клиенте.</li>
-<li>Для TCP запустите клиентские подключения и обработку сообщений от всех пользователей в потоках. Не забудьте сохранять пользователей, чтобы отправлять им сообщения.</li>
+<li>Вывести чаты пользователя:</li>
 </ul>
-<h3 id="_4">Листинг кода:</h3>
-<h4 id="serverpy">server.py</h4>
-<pre><code>import socket
-import sys
+<pre><code>class MyLeasesChatsView(ListAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = ChatsListSerializer
 
-
-class MyHTTPServer:
-    def __init__(self, host, port, name):
-        self.host = host
-        self.port = port
-        self.name = name
-        self.grades = {}
-
-    def serve_forever(self):
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
-            server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            server_socket.bind((self.host, self.port))
-            server_socket.listen(1)
-            print(f'Server started on {self.host}:{self.port}')
-            print(&quot;http://localhost:8080&quot;)
-
-            while True:
-                client_socket, client_address = server_socket.accept()
-                self.serve_client(client_socket)
-
-    def serve_client(self, client_socket):
-        request = client_socket.recv(1024).decode('utf-8')
-        method, url, version = self.parse_request(request)
-        headers, body = self.parse_headers(request)
-
-        if method == 'GET':
-            response_body = self.get_grades()
-            self.send_response(client_socket, '200 OK', response_body)
-        elif method == 'POST':
-            self.add_grade(body)
-            self.send_response(client_socket, '200 OK', '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Grade Added&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;')
-        else:
-            self.send_response(client_socket, '405 Method Not Allowed',
-                               '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Method Not Allowed&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;')
-
-    def parse_request(self, request):
-        request_line = request.splitlines()[0]
-        method, url, version = request_line.split(' ')
-        return method, url, version
-
-    def parse_headers(self, request):
-        headers = {}
-        lines = request.splitlines()
-        body_index = request.index('\r\n\r\n') + 4
-        headers_body = lines[1:]
-
-        for line in headers_body:
-            if line == '':
-                break
-            header, value = line.split(': ', 1)
-            headers[header] = value
-
-        body = request[body_index:]
-        return headers, body
-
-    def handle_request(self, method, url, body):
-        if method == 'GET':
-            return self.get_grades()
-        elif method == 'POST':
-            self.add_grade(body)
-            return '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Grade Added&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;'
-        else:
-            return '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Method Not Allowed&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;'
-
-    def get_grades(self):
-        html_response = '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Grades&lt;/h1&gt;&lt;ul&gt;'
-        for discipline, grade in self.grades.items():
-            html_response += f'&lt;li&gt;{discipline}: {grade}&lt;/li&gt;'
-        html_response += '&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;'
-        return html_response
-
-    def add_grade(self, body):
-        params = body.split('&amp;')
-        discipline = None
-        grade = None
-        for param in params:
-            key, value = param.split('=')
-            if key == 'discipline':
-                discipline = value
-            elif key == 'grade':
-                grade = value
-        if discipline and grade:
-            self.grades[discipline] = grade
-
-    def send_response(self, client_socket, status, body):
-        response = f'HTTP/1.1 {status}\r\nContent-Type: text/html\r\nContent-Length: {len(body)}\r\n\r\n{body}'
-        client_socket.sendall(response.encode('utf-8'))
-
-if __name__ == '__main__':
-    host = &quot;localhost&quot;
-    port = 8080
-    name = &quot;GraduateWeb&quot;
-    serv = MyHTTPServer(host, port, name)
-    try:
-        serv.serve_forever()
-    except KeyboardInterrupt:
-        pass
+    def get_queryset(self):
+        return PostingChat.objects.filter(
+            renter=self.request.user
+        )
 </code></pre>
-<h4 id="clientpy">client.py</h4>
-<pre><code>import socket
+<ul>
+<li>Вывести объекты которые пользователь арендует:</li>
+</ul>
+<pre><code>class RealEstateManagementView(ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
 
-def send_get_request(host, port):
-    request = &quot;GET / HTTP/1.1\r\nHost: {}\r\n\r\n&quot;.format(host)
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
-        client_socket.connect((host, port))
-        client_socket.sendall(request.encode('utf-8'))
-        response = client_socket.recv(4096).decode('utf-8')
-        print(&quot;GET response: \n&quot;, response)
+    def get_queryset(self):
+        return RealEstate.objects.filter(owner=self.request.user)
 
-def send_post_request(host, port, discipline, grade):
-    body = &quot;discipline={}&amp;grade={}&quot;.format(discipline, grade)
-    request = &quot;POST / HTTP/1.1\r\nHost: {}\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: {}\r\n\r\n{}&quot;.format(host, len(body), body)
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
-        client_socket.connect((host, port))
-        client_socket.sendall(request.encode('utf-8'))
-        response = client_socket.recv(4096).decode('utf-8')
-        print(&quot;POST response: \n&quot;, response)
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return RealEstateCreateSerializer
+        return RealEstateSerializer
 
-if __name__ == '__main__':
-    host = &quot;localhost&quot;
-    port = 8080
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
-    # Отправка POST запроса для добавления новой оценки
-    send_post_request(host, port, &quot;Math&quot;, &quot;4&quot;)
-    send_post_request(host, port, &quot;WEB&quot;, &quot;5&quot;)
-    send_post_request(host, port, &quot;FRONT&quot;, &quot;5&quot;)
-    send_post_request(host, port, &quot;DATABASE&quot;, &quot;5&quot;)
-
-    # Отправка GET запроса для получения списка всех оценок
-    send_get_request(host, port)
 </code></pre>
-<h3 id="_5">Пояснение:</h3>
-<p>При реализации было принято решение сделать многопользовательский чат с применением TCP протокола. У клиента есть возможность отправлять сообщения, видеть всех учатников чата, а также при желании выходить из чата с помощью кодового слова "exit". Если говорить о серверной части, было реализовано запоминание каждого пользователя в словаре (с его подключением и адресом), обработка входящих сообщений и перенаправление остальным клиентам, удаление клиента из чата и информирование об этом остальных, а также запоминание всех входящих и выходящих клиентов путем простого вывода данной информации в консоль. Каждый клиент может видеть, кто сейчас онлайн, кто покинул чат, а кто отправил каждое сообщение</p></p>
+<ul>
+<li>Вывести чаты с арендодателями по объектам которые пользователь арендует:</li>
+</ul>
+<pre><code>class MyRealEstateChatsView(ListAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = ChatsListSerializer
+
+    def get_queryset(self):
+        return PostingChat.objects.filter(
+            posting__real_estate__owner=self.request.user
+        )
+</code></pre>
+<ul>
+<li>Вывести объекты которые пользователь выставил:</li>
+</ul>
+<pre><code>class PostingsManageView(ListAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = PostingDetailsSerializer
+
+    def get_queryset(self):
+        if self.request.GET.get('archive', False):
+            return LeasePosting.objects.filter(real_estate__owner=self.request.user,
+                                               archived=True)
+        return LeasePosting.objects.filter(real_estate__owner=self.request.user)
+
+</code></pre></p>
     </article>
 </section>
             <!-- endblock -->

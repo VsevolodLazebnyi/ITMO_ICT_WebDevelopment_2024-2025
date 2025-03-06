@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>Task5 - Отчет к лабораторным работам по курсу "WEB-пограммирование"</title>
+        <title>Задание - Отчет к лабораторным работам по курсу "WEB-пограммирование"</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,7 +83,7 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="../task1/"
+        <a href="../../LR1/task1/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Задание 1
@@ -91,7 +91,7 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../task2/"
+        <a href="../../LR1/task2/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Задание 2
@@ -99,7 +99,7 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../task3/"
+        <a href="../../LR1/task3/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Задание 3
@@ -107,7 +107,7 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../task4/"
+        <a href="../../LR1/task4/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Задание 4
@@ -158,7 +158,7 @@
             </li>
             <li class="drac-box">
                 <a href="../.."
-                    class="
+                    class=" active 
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#лабораторная-работа-№4-collapse" aria-expanded="false">
                     Лабораторная работа №4
@@ -167,8 +167,8 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="../../LR4/task/"
-            class="
+        <a href="./"
+            class=" active 
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Задание
         </a>
@@ -201,6 +201,22 @@
                     <!-- block preview -->
                     <li class="nav-item">
                             
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../../LR3/task/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
                     </li>
                     <!--  endblock -->
 
@@ -231,159 +247,82 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><h2 id="no4">Задание №4. Многопользовательский чат</h2>
-<h3 id="_1">Описание:</h3>
-<p>Реализовать двухпользовательский или многопользовательский чат. Для максимального количества баллов реализуйте многопользовательский чат.</p>
-<h3 id="_2">Требования:</h3>
+        <p><h2 id="vuejs">Реализация клиентской части приложения средствами vue.js.</h2>
+<h3 id="_1">Описание проекта:</h3>
+<p>В рамках данной лабораторной были полностью взяты данные из лабораторной работы №3. </p>
+<h3 id="_2">Интерфейсы:</h3>
+<h3 id="_3">Регистрация и авторизация для администраторов</h3>
 <ul>
-<li>Обязательно использовать библиотеку socket.</li>
-<li>Для многопользовательского чата необходимо использовать библиотеку threading.</li>
+<li>Форма для ввода данных</li>
+<li>Создание нового объявления</li>
+<li>Поиск по странице</li>
+<li>Переключение темы</li>
 </ul>
-<h3 id="_3">Реализация:</h3>
+<h3 id="_4">Главная страница</h3>
 <ul>
-<li>Протокол TCP: 100% баллов.</li>
-<li>Протокол UDP: 80% баллов.</li>
-<li>Для UDP используйте threading для получения сообщений на клиенте.</li>
-<li>Для TCP запустите клиентские подключения и обработку сообщений от всех пользователей в потоках. Не забудьте сохранять пользователей, чтобы отправлять им сообщения.</li>
+<li>Список всей недвижимости</li>
+<li>Фильтрация по типу недвижимости</li>
 </ul>
-<h3 id="_4">Листинг кода:</h3>
-<h4 id="serverpy">server.py</h4>
-<pre><code>import socket
-import sys
+<h3 id="_5">Навигационная панель</h3>
+<ul>
+<li>Вкладки: предложения, личный кабинет, сообщения</li>
+</ul>
+<h3 id="_6">Предложения:</h3>
+<ul>
+<li>Список всей недвижимости на портале</li>
+<li>Переход в карточку недвижимости</li>
+</ul>
+<h3 id="_7">Личныый кабинет</h3>
+<ul>
+<li>Данные о пользователе</li>
+<li>Актуальные сделки</li>
+<li>Завершенные сделки</li>
+<li>Формирование отчета о сделках</li>
+</ul>
+<h3 id="_8">Карточка недвижимости</h3>
+<ul>
+<li>Фото + описание</li>
+<li>Опция бронирования</li>
+<li>Интерктивная карта с геометкой объекта</li>
+</ul>
+<p>Приступим к реализации варианта проекта. Для начала создадим и настроим сервер, а именно проработаем модели, сериализаторы, представления и маршруты. Ниже на скриншотах будут представлены частичные куски кода:
+<img alt="Alt текст" src="../images/4img5.png" />
+<img alt="Alt текст" src="../images/4img6.png" />
+<img alt="Alt текст" src="../images/4img7.png" /></p>
+<p>А также напишем скрипты на vue.js:
+<img alt="Alt текст" src="../images/4img8.png" />
+<img alt="Alt текст" src="../images/4img9.png" /></p>
+<p>И перейдем в админку для наглядности проекта:
+<img alt="Alt текст" src="../images/4img10.png" />
+<img alt="Alt текст" src="../images/4img11.png" /></p>
+<p>Также настроим CORS в нашем проекте:</p>
+<pre><code>CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [&quot;http://localhost:5173&quot;]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:5173']
 
-
-class MyHTTPServer:
-    def __init__(self, host, port, name):
-        self.host = host
-        self.port = port
-        self.name = name
-        self.grades = {}
-
-    def serve_forever(self):
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
-            server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            server_socket.bind((self.host, self.port))
-            server_socket.listen(1)
-            print(f'Server started on {self.host}:{self.port}')
-            print(&quot;http://localhost:8080&quot;)
-
-            while True:
-                client_socket, client_address = server_socket.accept()
-                self.serve_client(client_socket)
-
-    def serve_client(self, client_socket):
-        request = client_socket.recv(1024).decode('utf-8')
-        method, url, version = self.parse_request(request)
-        headers, body = self.parse_headers(request)
-
-        if method == 'GET':
-            response_body = self.get_grades()
-            self.send_response(client_socket, '200 OK', response_body)
-        elif method == 'POST':
-            self.add_grade(body)
-            self.send_response(client_socket, '200 OK', '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Grade Added&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;')
-        else:
-            self.send_response(client_socket, '405 Method Not Allowed',
-                               '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Method Not Allowed&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;')
-
-    def parse_request(self, request):
-        request_line = request.splitlines()[0]
-        method, url, version = request_line.split(' ')
-        return method, url, version
-
-    def parse_headers(self, request):
-        headers = {}
-        lines = request.splitlines()
-        body_index = request.index('\r\n\r\n') + 4
-        headers_body = lines[1:]
-
-        for line in headers_body:
-            if line == '':
-                break
-            header, value = line.split(': ', 1)
-            headers[header] = value
-
-        body = request[body_index:]
-        return headers, body
-
-    def handle_request(self, method, url, body):
-        if method == 'GET':
-            return self.get_grades()
-        elif method == 'POST':
-            self.add_grade(body)
-            return '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Grade Added&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;'
-        else:
-            return '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Method Not Allowed&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;'
-
-    def get_grades(self):
-        html_response = '&lt;html&gt;&lt;body&gt;&lt;h1&gt;Grades&lt;/h1&gt;&lt;ul&gt;'
-        for discipline, grade in self.grades.items():
-            html_response += f'&lt;li&gt;{discipline}: {grade}&lt;/li&gt;'
-        html_response += '&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;'
-        return html_response
-
-    def add_grade(self, body):
-        params = body.split('&amp;')
-        discipline = None
-        grade = None
-        for param in params:
-            key, value = param.split('=')
-            if key == 'discipline':
-                discipline = value
-            elif key == 'grade':
-                grade = value
-        if discipline and grade:
-            self.grades[discipline] = grade
-
-    def send_response(self, client_socket, status, body):
-        response = f'HTTP/1.1 {status}\r\nContent-Type: text/html\r\nContent-Length: {len(body)}\r\n\r\n{body}'
-        client_socket.sendall(response.encode('utf-8'))
-
-if __name__ == '__main__':
-    host = &quot;localhost&quot;
-    port = 8080
-    name = &quot;GraduateWeb&quot;
-    serv = MyHTTPServer(host, port, name)
-    try:
-        serv.serve_forever()
-    except KeyboardInterrupt:
-        pass
+AUTH_USER_MODEL = 'auth.User'
 </code></pre>
-<h4 id="clientpy">client.py</h4>
-<pre><code>import socket
-
-def send_get_request(host, port):
-    request = &quot;GET / HTTP/1.1\r\nHost: {}\r\n\r\n&quot;.format(host)
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
-        client_socket.connect((host, port))
-        client_socket.sendall(request.encode('utf-8'))
-        response = client_socket.recv(4096).decode('utf-8')
-        print(&quot;GET response: \n&quot;, response)
-
-def send_post_request(host, port, discipline, grade):
-    body = &quot;discipline={}&amp;grade={}&quot;.format(discipline, grade)
-    request = &quot;POST / HTTP/1.1\r\nHost: {}\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: {}\r\n\r\n{}&quot;.format(host, len(body), body)
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
-        client_socket.connect((host, port))
-        client_socket.sendall(request.encode('utf-8'))
-        response = client_socket.recv(4096).decode('utf-8')
-        print(&quot;POST response: \n&quot;, response)
-
-if __name__ == '__main__':
-    host = &quot;localhost&quot;
-    port = 8080
-
-    # Отправка POST запроса для добавления новой оценки
-    send_post_request(host, port, &quot;Math&quot;, &quot;4&quot;)
-    send_post_request(host, port, &quot;WEB&quot;, &quot;5&quot;)
-    send_post_request(host, port, &quot;FRONT&quot;, &quot;5&quot;)
-    send_post_request(host, port, &quot;DATABASE&quot;, &quot;5&quot;)
-
-    # Отправка GET запроса для получения списка всех оценок
-    send_get_request(host, port)
-</code></pre>
-<h3 id="_5">Пояснение:</h3>
-<p>При реализации было принято решение сделать многопользовательский чат с применением TCP протокола. У клиента есть возможность отправлять сообщения, видеть всех учатников чата, а также при желании выходить из чата с помощью кодового слова "exit". Если говорить о серверной части, было реализовано запоминание каждого пользователя в словаре (с его подключением и адресом), обработка входящих сообщений и перенаправление остальным клиентам, удаление клиента из чата и информирование об этом остальных, а также запоминание всех входящих и выходящих клиентов путем простого вывода данной информации в консоль. Каждый клиент может видеть, кто сейчас онлайн, кто покинул чат, а кто отправил каждое сообщение</p></p>
+<p>Далее рассмотрим основной интерфейс моей платформы:</p>
+<ul>
+<li>
+<p>Главная страница (сразу можно заметить фильтрацию, поиск, а также возможность создания новой карточки):
+<img alt="Alt текст" src="../images/4img1.png" /></p>
+</li>
+<li>
+<p>Опция создания новой недвижимости (форма для заполнения):
+<img alt="Alt текст" src="../images/4img2.png" /></p>
+</li>
+<li>
+<p>Личный аккаунт. Слева можно увидеть данные пользователя (которые можно редактировать), а справа - актуальные бронирования:
+<img alt="Alt текст" src="../images/4img3.png" /></p>
+</li>
+<li>
+<p>Раздел личных сообщений (список всех входящих обращений и диалогов):
+<img alt="Alt текст" src="../images/4img4.png" /></p>
+</li>
+</ul>
+<h3 id="_9">Вывод:</h3>
+<p>В рамках данной лабораторной работы я реализовал полноценную платформу недвижимости, в рамках которой каждый пользователь может отслеживать все актуальные объявления, создавать бронирования, предлагать пользователям свою недвижимость, обрабатывать сообщения, а также полностью отслеживать историю своего взаимодействия с платформой.</p></p>
     </article>
 </section>
             <!-- endblock -->
